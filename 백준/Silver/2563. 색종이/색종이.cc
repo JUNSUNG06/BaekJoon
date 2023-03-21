@@ -20,17 +20,12 @@ int main()
         {
             for (int k = 0; k < 10; k++)
             {
-                paper[inputY + j][inputX + k] = 1;
+                if (paper[inputY + j][inputX + k] != 1)
+                {
+                    paper[inputY + j][inputX + k] = 1;
+                    count++;
+                }
             }
-        }
-    }
-
-    for (int i = 0; i < 100; i++)
-    {
-        for(int j = 0; j < 100; j++)
-        {
-            if (paper[i][j] == 1)
-                count++;
         }
     }
 
