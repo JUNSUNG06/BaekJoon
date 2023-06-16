@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <map>
+#include <unordered_map>
 using namespace std;
 
 int main()
@@ -9,8 +9,8 @@ int main()
     std::cin.tie(NULL);
     std::cout.tie(NULL);
 
-    map<int, string> iMap;
-    map<string, int> sMap;
+    unordered_map<int, string> iMap;
+    unordered_map<string, int> sMap;
     int n, m;
     string str;
 
