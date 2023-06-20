@@ -26,13 +26,13 @@ int main()
     {
         cin >> value;
         
-        if(sanggeuns_set.find(value) != sanggeuns_set.end())
+        if(sanggeuns_set.find(value) == sanggeuns_set.end())
         {
-            cout << 1 << ' ';
+            cout << 0 << ' ';
         }
         else
         {
-            cout << 0 << ' ';
+            cout << 1 << ' ';
         }
     }
 }
