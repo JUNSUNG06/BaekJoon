@@ -2,24 +2,22 @@
 #include<algorithm>
 using namespace std;
 
+int gcd(long long int a, long long int b)
+{
+    if (b == 0)
+        return a;
+
+    if (a % b == 0)
+        return b;
+    else
+        return gcd(b, a % b);
+}
+
 int main()
 {
-    long long int a, b, div, remain, temp;
+    long long int a, b;
 
     cin >> a >> b;
 
-    div = max(a, b);
-    remain = min(a, b);
-
-    while (true)
-    {
-        temp = remain;
-        remain = div % remain;
-        div = temp;
-
-        if (remain == 0)
-            break;
-    }
-
-    cout << a * b / div;
+    cout << a * b / gcd(a, b);
 }
