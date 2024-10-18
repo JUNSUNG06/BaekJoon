@@ -1,34 +1,38 @@
-#include<iostream>
+#include <iostream>
+#include <cstdio>
+#include <queue>
+#include <algorithm>
+
 using namespace std;
 
-int main()
-{
+int dist[100000];
+int cost[100000];
+
+int main(void){
     int n;
-    int* road;
-    int* price;
-    int currentPrice = 0, roadLength = 0, result = 0;
-    cin >> n;
-    road = new int[n - 1];
-    price = new int[n];
-
-    for (int i = 0; i < n - 1; i++)
-        cin >> road[i];
-    for (int i = 0; i < n; i++)
-        cin >> price[i];
-
-    currentPrice = price[0];
-    for (int i = 0; i < n - 1; i++)
-    {
-        roadLength += road[i];
-
-        if (price[i + 1] < currentPrice)
-        {
-            result += roadLength * currentPrice;
-            currentPrice = price[i + 1];
-            roadLength = 0;
+    long long total=0;
+    long long c_now;
+    
+    scanf("%d", &n);
+    
+    for(int i=1; i<n; i++){
+        scanf("%d", &dist[i]);
+    }
+    for(int i=0; i<n; i++){
+        scanf("%d", &cost[i]);
+    }
+    c_now = cost[0];
+    total = c_now * dist[1];
+    //첫번째->두번째 이동
+    
+    for(int i=1; i<n; i++){
+        if(c_now < cost[i]){
+            total += c_now * dist[i+1];
+        }
+        else{
+            c_now = cost[i];
+            total += c_now*dist[i+1];
         }
     }
-    result += roadLength * currentPrice;
-
-    cout << result;
+    printf("%lld\n", total);
 }
